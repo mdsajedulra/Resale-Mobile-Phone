@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 const addedDate = new Date();
 const AddProduct = () => {
-
+    const { user } = useContext(AuthContext);
     const handleForm = event => {
         event.preventDefault()
         const form = event.target;
@@ -16,6 +17,8 @@ const AddProduct = () => {
             number: form.number.value,
             purcheasedate: form.purcheasedate.value,
             postTime: addedDate,
+            sellerName: user?.displayName,
+            sellerPhoto: user?.photoURL,
         }
         fetch('http://localhost:5000/addproduct', {
             method: 'POST',
@@ -57,7 +60,7 @@ const AddProduct = () => {
                 <label className="label">
                     <span className="label-text">Location</span>
                 </label>
-                <input required name='Location' type="text" placeholder="Location" className="input input-bordered w-full " />
+                <input required name='location' type="text" placeholder="Location" className="input input-bordered w-full " />
             </div>
             <div>
                 <label className="label">

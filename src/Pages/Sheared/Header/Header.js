@@ -11,8 +11,7 @@ const Header = () => {
     const handleLogout = () => {
         logOut()
             .then(result => {
-                console.log(result)
-                console.log(user)
+
             })
             .then(error => console.log(error))
     }
@@ -42,7 +41,13 @@ const Header = () => {
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img src="https://placeimg.com/80/80/people" />
+                                {
+                                    user?.photoURL !== null ?
+                                        <img src={user.photoURL} alt='' />
+                                        :
+                                        <img src="https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg" alt='' />
+                                }
+
                             </div>
                         </label>
                         <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
