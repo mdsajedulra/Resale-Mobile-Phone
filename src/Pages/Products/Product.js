@@ -11,7 +11,7 @@ const Product = ({ product }) => {
                 <div className='flex gap-6'>
                     <div className="w-10 avatar online">
                         <div className="w-10 rounded-full">
-                            <img src="https://placeimg.com/192/192/people" />
+                            <img src="https://placeimg.com/192/192/people" alt='' />
                         </div>
                     </div>
                     <h2>Md Sajedul islam</h2>
