@@ -30,10 +30,8 @@ const Product = ({ product }) => {
                 <p>Uses Time: {usesTime}</p>
                 <p>Post Date: {postTime.slice(0, 10)}</p>
                 <div className="card-actions ">
-                    {/* <button htmlFor="my-modal" className="w-full btn btn-primary">Buy Now</button> */}
-                    <label htmlFor="my-modal" className="w-full btn btn-primary">Book</label>
 
-                    {/* <input type="checkbox" id="my-modal" className="modal-toggle" /> */}
+                    <label htmlFor="my-modal" className="w-full btn btn-primary">Book</label>
 
                 </div>
             </div>

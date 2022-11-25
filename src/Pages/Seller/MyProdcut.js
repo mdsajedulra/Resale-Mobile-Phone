@@ -7,14 +7,13 @@ import toast from 'react-hot-toast';
 
 const MyProdcut = () => {
     const { user } = useContext(AuthContext);
-    const { isLoading, error, data } = useQuery({
+    const { isLoading, error, data, refetch } = useQuery({
         queryKey: ['myOrders', user?.email],
         queryFn: () =>
             fetch(`http://localhost:5000/myproduct/?email=${user?.email}`).then(res =>
                 res.json()
             ),
     })
-    console.log(data)
     const handleMyOrderDelete = (id) => {
 
         console.log(id)
@@ -24,6 +23,7 @@ const MyProdcut = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     toast.success('Delete successfuly')
+                    refetch()
                 }
             })
 
@@ -57,7 +57,7 @@ const MyProdcut = () => {
 
                         {
                             data?.map((order, i) =>
-                                <tr>
+                                <tr key={i}>
                                     <th>
                                         {i + 1}
                                     </th>

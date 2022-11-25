@@ -8,6 +8,7 @@ const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
+
     const [loading, setLoading] = useState(true);
     // Register user
     const registerUsingEmailPassword = (email, password) => {
@@ -56,7 +57,8 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         user,
         logOut,
-        loading
+        loading,
+
     }
     return (
         <div>

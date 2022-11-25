@@ -8,13 +8,13 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
 
-    const { isLoading, error, data } = useQuery({
-        queryKey: ['myOrders', user?.email],
+    const { isLoading, error, data, refetch } = useQuery({
+        queryKey: ['myOrders'],
         queryFn: () =>
             fetch(`http://localhost:5000/myorder/?email=${user?.email}`).then(res =>
                 res.json()
             ),
-        enabled: !!user?.email
+
     })
     const handleOrderDelete = (id) => {
 
@@ -24,6 +24,7 @@ const MyOrders = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     toast.success('Delete successfuly')
+                    refetch()
                 }
             })
     }
@@ -55,7 +56,7 @@ const MyOrders = () => {
 
                         {
                             data?.map((order, i) =>
-                                <tr>
+                                <tr key={i}>
                                     <th>
                                         {i + 1}
                                     </th>

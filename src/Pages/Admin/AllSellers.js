@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 const AllSellers = () => {
 
-    const { isLoading, error, data } = useQuery({
+    const { isLoading, error, data, refetch } = useQuery({
         queryKey: [],
         queryFn: () =>
             fetch(`http://localhost:5000/allseller`).then(res =>
@@ -19,6 +19,7 @@ const AllSellers = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     toast.success('Delete successfuly')
+                    refetch()
                 }
             })
     }
@@ -50,7 +51,7 @@ const AllSellers = () => {
 
                         {
                             data?.map((user, i) =>
-                                <tr>
+                                <tr key={i}>
                                     <th>
                                         {i + 1}
                                     </th>
