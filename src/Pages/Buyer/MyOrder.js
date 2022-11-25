@@ -1,9 +1,10 @@
 import React from 'react';
 
-const MyOrder = () => {
+const MyOrder = ({ order }) => {
+    console.log(order)
     return (
         <div>
-            this is my order
+
         </div>
     );
 };

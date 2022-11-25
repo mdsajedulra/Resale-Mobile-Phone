@@ -18,6 +18,7 @@ const AddProduct = () => {
             purcheasedate: form.purcheasedate.value,
             postTime: addedDate,
             sellerName: user?.displayName,
+            sellerEmail: user?.email,
             sellerPhoto: user?.photoURL,
         }
         fetch('http://localhost:5000/addproduct', {

@@ -19,7 +19,7 @@ const Header = () => {
             .then(error => console.log(error))
     }
     return (
-        <div className="justify-between navbar bg-base-100">
+        <div className="justify-between mb-6 navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -54,7 +54,7 @@ const Header = () => {
                             </div>
                         </label>
                         <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                            <li><Link to='dashboard'>Dashboard</Link></li>
+                            <li><Link to='/dashboard'>Dashboard</Link></li>
                             <li><button onClick={handleLogout}>Logout</button></li>
                         </ul>
                     </div>
