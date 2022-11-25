@@ -12,6 +12,7 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const { name, email, password } = data;
+        console.log(data)
         registerUsingEmailPassword(email, password)
             .then(result => {
                 const user = result.user;
@@ -29,6 +30,13 @@ const Register = () => {
                 if (user) {
                     toast.success('Account create Success')
                 }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                })
             })
             .catch(error => console.log(error))
     };
@@ -60,12 +68,20 @@ const Register = () => {
                 </label>
                 <input type='password' placeholder='enter your password' className="w-full input input-bordered" {...register("password", { required: true })} />
                 {errors.exampleRequired && <span>This field is required</span>}
+
+                <label className="label">
+                    <span className="label-text">Chose your role</span>
+                </label>
+                <select className="w-full select select-bordered" {...register(" role")}>
+                    <option value="buyer">Buyer</option>
+                    <option value="seller">Seller</option>
+                </select>
                 <br />
                 <br />
                 <button className="w-full mb-4 btn btn-primary" type="submit" >Register</button>
                 <button onClick={handleGooglePop} className="w-full p-2 text-black bg-white border border-white rounded-md "  >REGISTER WITH GOOGLE</button>
             </form >
-        </div>
+        </div >
     );
 };
 

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import ProductBookModal from './ProductBookModal';
 
 const Product = ({ product }) => {
     console.log(product)
-    const { name, originalPrice, picture, postTime, resalePrice, usesTime, sellerName, sellerPhoto } = product;
+    const { name, number, originalPrice, picture, postTime, resalePrice, usesTime, sellerName, sellerPhoto } = product;
+    const { user } = useContext(AuthContext);
     return (
-        <div className="card bg-base-100 shadow-xl">
+        <div className="shadow-xl card bg-base-100">
             <figure><img className='bg-white' src={picture} alt="" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
@@ -28,10 +30,19 @@ const Product = ({ product }) => {
                 <p>Uses Time: {usesTime}</p>
                 <p>Post Date: {postTime.slice(0, 10)}</p>
                 <div className="card-actions ">
-                    <button htmlFor="my-modal" className="w-full btn btn-primary">Buy Now</button>
+                    {/* <button htmlFor="my-modal" className="w-full btn btn-primary">Buy Now</button> */}
+                    <label htmlFor="my-modal" className="w-full btn btn-primary">Book</label>
+
+                    {/* <input type="checkbox" id="my-modal" className="modal-toggle" /> */}
+
                 </div>
             </div>
-            <ProductBookModal></ProductBookModal>
+            <ProductBookModal
+                user={user}
+                resalePrice={resalePrice}
+                number={number}
+                name={name}
+            ></ProductBookModal>
         </div>
     );
 };
