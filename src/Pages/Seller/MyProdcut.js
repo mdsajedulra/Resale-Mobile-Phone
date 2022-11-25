@@ -14,6 +14,7 @@ const MyProdcut = () => {
                 res.json()
             ),
     })
+    console.log(data)
     const handleMyOrderDelete = (id) => {
 
         console.log(id)
@@ -27,6 +28,14 @@ const MyProdcut = () => {
             })
 
     }
+    if (isLoading) return <div className="flex items-center justify-center my-48">
+        <img src="https://d33wubrfki0l68.cloudfront.net/7ad98dc27fb7d45a2570730eda827673d6028969/c1127/images/loading.gif" alt="" />
+    </div>
+    if (error) {
+        console.log(error)
+    }
+
+
     return (
         <div className='w-full'>
 

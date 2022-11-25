@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-import Myorder from './Myorder';
+
 
 
 const MyOrders = () => {
@@ -17,7 +17,7 @@ const MyOrders = () => {
         enabled: !!user?.email
     })
     const handleOrderDelete = (id) => {
-        console.log(id)
+
         fetch(`http://localhost:5000/myorder/delete/${id}`, {
             method: 'DELETE',
         }).then(res => res.json())
