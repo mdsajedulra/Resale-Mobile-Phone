@@ -36,20 +36,20 @@ const AddProduct = () => {
     }
 
     return (
-        <form onSubmit={handleForm} className="form-control w-full ">
-            <h1 className="text-center text-4xl font-semibold">Add your second hand Mobile</h1>
+        <form className='w-full mx-auto md:w-4/5 xl:w-1/3 form-control' onSubmit={handleForm}>
+            <h1 className="text-4xl font-semibold text-center">Add your second hand Mobile</h1>
             <div>
                 <label className="label">
                     <span className="label-text">Product name</span>
                 </label>
-                <input required name='name' type="text" placeholder="Product name" className="input input-bordered w-full " />
+                <input required name='name' type="text" placeholder="Product name" className="w-full input input-bordered " />
             </div>
 
             <div>
                 <label className="label">
                     <span className="label-text">Brand Name</span>
                 </label>
-                <select name='brand' className="select select-bordered w-full">
+                <select name='brand' className="w-full select select-bordered">
                     <option value="Samsung">Samsung</option>
                     <option value="IPhone">IPhone</option>
                     <option value="Xioami">Xioami</option>
@@ -60,49 +60,49 @@ const AddProduct = () => {
                 <label className="label">
                     <span className="label-text">Location</span>
                 </label>
-                <input required name='location' type="text" placeholder="Location" className="input input-bordered w-full " />
+                <input required name='location' type="text" placeholder="Location" className="w-full input input-bordered " />
             </div>
             <div>
                 <label className="label">
                     <span className="label-text">Picture URL</span>
                 </label>
-                <input required name='pictureURL' type="text" placeholder="Phone Picture" className="input input-bordered w-full " />
+                <input required name='pictureURL' type="text" placeholder="Phone Picture" className="w-full input input-bordered " />
             </div>
             <div>
                 <label className="label">
                     <span className="label-text">Buying Price</span>
                 </label>
-                <input required name='buyingprice' type="text" placeholder="Buying Price" className="input input-bordered w-full " />
+                <input required name='buyingprice' type="text" placeholder="Buying Price" className="w-full input input-bordered " />
             </div>
             <div>
                 <label className="label">
                     <span className="label-text">Selling Price</span>
                 </label>
-                <input required name='saleingprice' type="text" placeholder="Selling Price" className="input input-bordered w-full " />
+                <input required name='saleingprice' type="text" placeholder="Selling Price" className="w-full input input-bordered " />
             </div>
             <div>
                 <label className="label">
                     <span className="label-text">Mobile Number</span>
                 </label>
-                <input required name='number' type="text" placeholder="Mobile Number" className="input input-bordered w-full " />
+                <input required name='number' type="text" placeholder="Mobile Number" className="w-full input input-bordered " />
             </div>
             <div>
                 <label className="label">
                     <span className="label-text">Description</span>
                 </label>
-                <input required name='description' type="text" placeholder="Description" className="input input-bordered w-full " />
+                <input required name='description' type="text" placeholder="Description" className="w-full input input-bordered " />
             </div>
             <div>
                 <label className="label">
                     <span className="label-text">Date of  Purchease</span>
                 </label>
-                <input required name='purcheasedate' type="date" placeholder="Year of  Purchease" className="input input-bordered w-full " />
+                <input required name='purcheasedate' type="date" placeholder="Year of  Purchease" className="w-full input input-bordered " />
             </div>
             <div>
                 <label className="label">
                     <span className="label-text">How long used</span>
                 </label>
-                <input required name='howLongUsed' type="text" placeholder="How long used" className="input input-bordered w-full " />
+                <input required name='howLongUsed' type="text" placeholder="How long used" className="w-full input input-bordered " />
             </div>
             <br />
             <button type='submit' className="btn btn-primary">submit</button>

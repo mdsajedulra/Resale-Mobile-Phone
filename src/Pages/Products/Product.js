@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductBookModal from './ProductBookModal';
 
 const Product = ({ product }) => {
     console.log(product)
@@ -27,9 +28,10 @@ const Product = ({ product }) => {
                 <p>Uses Time: {usesTime}</p>
                 <p>Post Date: {postTime.slice(0, 10)}</p>
                 <div className="card-actions ">
-                    <button className="w-full btn btn-primary">Buy Now</button>
+                    <button htmlFor="my-modal" className="w-full btn btn-primary">Buy Now</button>
                 </div>
             </div>
+            <ProductBookModal></ProductBookModal>
         </div>
     );
 };
