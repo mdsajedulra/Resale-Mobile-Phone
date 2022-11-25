@@ -54,7 +54,7 @@ const Header = () => {
                             </div>
                         </label>
                         <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                            <li><Link>Settings</Link></li>
+                            <li><Link to='dashboard'>Dashboard</Link></li>
                             <li><button onClick={handleLogout}>Logout</button></li>
                         </ul>
                     </div>
@@ -65,6 +65,9 @@ const Header = () => {
                     </>
 
             }
+            <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            </label>
 
         </div>
     );

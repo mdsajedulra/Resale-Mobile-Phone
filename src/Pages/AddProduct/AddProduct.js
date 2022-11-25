@@ -36,7 +36,7 @@ const AddProduct = () => {
     }
 
     return (
-        <form className='w-full mx-auto md:w-4/5 xl:w-1/3 form-control' onSubmit={handleForm}>
+        <form className='w-4/5 mx-auto form-control' onSubmit={handleForm}>
             <h1 className="text-4xl font-semibold text-center">Add your second hand Mobile</h1>
             <div>
                 <label className="label">
