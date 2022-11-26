@@ -8,6 +8,7 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const navItem = <>
         <li><Link to='/addproduct'>Add Product</Link></li>
+        <li><Link to='/blogs'>Blogs</Link></li>
     </>
     const handleLogout = () => {
         logOut()

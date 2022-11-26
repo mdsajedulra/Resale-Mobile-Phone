@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 const addedDate = new Date();
 const AddProduct = () => {
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext);
     const handleForm = event => {
         event.preventDefault()
@@ -20,6 +22,8 @@ const AddProduct = () => {
             sellerName: user?.displayName,
             sellerEmail: user?.email,
             sellerPhoto: user?.photoURL,
+            sold: false,
+            advertise: false,
         }
         fetch('http://localhost:5000/addproduct', {
             method: 'POST',
@@ -32,6 +36,7 @@ const AddProduct = () => {
             .then(data => {
                 if (data.acknowledged === true) {
                     toast.success('Your product added successfully')
+                    navigate('/dashboard/myproducts')
                 }
             })
     }

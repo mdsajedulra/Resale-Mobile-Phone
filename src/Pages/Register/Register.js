@@ -43,7 +43,21 @@ const Register = () => {
     const handleGooglePop = () => {
         createUserByGooglePopup()
             .then(result => {
-                console.log(result.user)
+                const user = result.user;
+                const usr = {
+                    name: user.displayName,
+                    email: user.email,
+                    role: "buyer"
+                }
+
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(usr)
+                })
+
                 navigate(from, { replace: true });
 
             })

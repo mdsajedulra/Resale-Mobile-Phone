@@ -7,6 +7,8 @@ import toast from 'react-hot-toast';
 
 const MyProdcut = () => {
     const { user } = useContext(AuthContext);
+
+    // for All my product
     const { isLoading, error, data, refetch } = useQuery({
         queryKey: ['myOrders', user?.email],
         queryFn: () =>
@@ -15,7 +17,6 @@ const MyProdcut = () => {
             ),
     })
     const handleMyOrderDelete = (id) => {
-
         console.log(id)
         fetch(`http://localhost:5000/myproducts/delete/${id}`, {
             method: 'DELETE',
@@ -36,6 +37,13 @@ const MyProdcut = () => {
     }
 
 
+    // handle advertise
+    const handleAdvertise = (id) => {
+        fetch(`http://localhost:5000/advertise/${id}`, {
+            method: 'PATCH',
+        })
+    }
+    console.log(data)
     return (
         <div className='w-full'>
 
@@ -46,14 +54,13 @@ const MyProdcut = () => {
                         <tr>
                             <th>S.N.</th>
                             <th>Product Name</th>
+                            <th>Sales Status</th>
                             <th>Price</th>
-                            <th>Location</th>
+                            <th>Advertise</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-
-
 
                         {
                             data?.map((order, i) =>
@@ -71,10 +78,16 @@ const MyProdcut = () => {
                                         </div>
                                     </td>
 
-                                    <td>{order.resalePrice}</td>
                                     <th>
-                                        <p>{order.meetingLocation}</p>
+                                        {
+                                            order.sold ? <p>sold</p> : <p>available</p>
+                                        }
+
                                     </th>
+                                    <th>
+                                        <button onClick={() => handleAdvertise(order._id)} className="btn btn-info btn-xs">advertise</button>
+                                    </th>
+                                    <td>{order.resalePrice}</td>
                                     <th>
                                         <button onClick={() => handleMyOrderDelete(order._id)} className="btn btn-error btn-xs">Delete</button>
                                     </th>

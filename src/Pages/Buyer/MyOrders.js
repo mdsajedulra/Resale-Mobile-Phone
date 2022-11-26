@@ -34,7 +34,6 @@ const MyOrders = () => {
     if (error) {
         console.log(error)
     }
-
     return (
         <div className='w-full'>
 

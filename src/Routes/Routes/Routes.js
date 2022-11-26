@@ -4,7 +4,9 @@ import Main from "../../Layout/Main";
 import AddProduct from "../../Pages/AddProduct/AddProduct";
 import AllBuyers from "../../Pages/Admin/AllBuyers";
 import AllSellers from "../../Pages/Admin/AllSellers";
+import Blogs from "../../Pages/Blogs/Blogs";
 import MyOrders from "../../Pages/Buyer/MyOrders";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Products from "../../Pages/Products/Products";
@@ -16,6 +18,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -38,15 +41,20 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>,
             },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>,
+            },
         ]
     },
     {
         path: '/dashboard',
         element: <PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/dashboard',
-                element: <AddProduct></AddProduct>
+                // element: <AddProduct></AddProduct>
             },
             {
                 path: '/dashboard/addproduct',

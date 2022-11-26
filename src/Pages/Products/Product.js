@@ -4,8 +4,9 @@ import ProductBookModal from './ProductBookModal';
 
 const Product = ({ product }) => {
     console.log(product)
-    const { name, number, originalPrice, picture, postTime, resalePrice, usesTime, sellerName, sellerPhoto } = product;
+    const { _id, name, number, originalPrice, picture, postTime, resalePrice, usesTime, sellerName, sellerPhoto } = product;
     const { user } = useContext(AuthContext);
+    // console.log(_id)
     return (
         <div className="shadow-xl card bg-base-100">
             <figure><img className='bg-white' src={picture} alt="" /></figure>
@@ -40,6 +41,7 @@ const Product = ({ product }) => {
                 resalePrice={resalePrice}
                 number={number}
                 name={name}
+                id={_id}
             ></ProductBookModal>
         </div>
     );
