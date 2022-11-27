@@ -17,7 +17,7 @@ const Register = () => {
     //     navigate('/')
     // }
     const onSubmit = data => {
-        const { name, email, password } = data;
+        const { name, email, password, role } = data;
         registerUsingEmailPassword(email, password)
             .then(result => {
                 const user = result.user;
@@ -36,12 +36,19 @@ const Register = () => {
                 if (user) {
                     toast.success('Account create Success')
                 }
+                const usr = {
+                    name,
+                    email,
+                    password,
+                    role,
+                    isVerify: false,
+                }
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
                     },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(usr)
                 })
                     .then(data => {
                         getUserToken(user.email)
@@ -59,7 +66,8 @@ const Register = () => {
                 const usr = {
                     name: user.displayName,
                     email: user.email,
-                    role: "buyer"
+                    role: "buyer",
+                    isVerify: false,
                 }
 
                 fetch('http://localhost:5000/users', {

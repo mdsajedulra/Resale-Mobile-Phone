@@ -22,8 +22,10 @@ const AddProduct = () => {
             sellerName: user?.displayName,
             sellerEmail: user?.email,
             sellerPhoto: user?.photoURL,
+            isVerify: false,
             sold: false,
             advertise: false,
+
         }
         fetch('http://localhost:5000/addproduct', {
             method: 'POST',
