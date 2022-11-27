@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Product from '../Products/Product';
-import AdItem from './AdItem';
 
 const Advertise = () => {
     const { isLoading, error, data, refetch } = useQuery({

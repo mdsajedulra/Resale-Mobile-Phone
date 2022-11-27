@@ -34,6 +34,8 @@ const ProductBookModal = ({ user, resalePrice, number, name, id }) => {
         fetch(`http://localhost:5000/addproduct/${id}`, {
             method: 'PATCH',
         })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
 
     return (
