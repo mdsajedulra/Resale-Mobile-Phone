@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
+
 import toast from 'react-hot-toast';
 
 const ProductBookModal = ({ user, resalePrice, number, name, id }) => {
@@ -46,33 +46,34 @@ const ProductBookModal = ({ user, resalePrice, number, name, id }) => {
             <input type="checkbox" id="my-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
-
+                    <label htmlFor="my-modal" className="absolute btn btn-sm btn-circle right-2 top-2">✕</label>
 
                     <form className='w-full mx-auto' onSubmit={handleBookingModal}>
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type='text' name='userName' className="w-full input input-bordered " defaultValue={user?.displayName} />
+                        <input type='text' readOnly name='userName' className="w-full input input-bordered " defaultValue={user?.displayName} />
 
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type='email' name='email' placeholder='enter your email' defaultValue={user?.email} className="w-full input input-bordered" />
+                        <input readOnly type='email' name='email' placeholder='enter your email' defaultValue={user?.email} className="w-full input input-bordered" />
                         {/* {errors.exampleRequired && <span>This field is required</span>} */}
                         <label className="label">
                             <span className="label-text">Item Name</span>
                         </label>
-                        <input type='text' name='name' className="w-full input input-bordered " defaultValue={name} />
+                        <input readOnly type='text' name='name' className="w-full input input-bordered " defaultValue={name} />
 
-                        <label className="label">
-                            <span className="label-text">Number</span>
-                        </label>
-                        <input type='text' name='number' className="w-full input input-bordered " placeholder='Provide your valid contact number' />
 
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input type='text' name='resalePrice' className="w-full input input-bordered " defaultValue={resalePrice} />
+                        <input readOnly type='text' name='resalePrice' className="w-full input input-bordered " defaultValue={resalePrice} />
+                        <label className="label">
+                            <span className="label-text">Number</span>
+                        </label>
+                        <input required type='text' name='number' className="w-full input input-bordered " placeholder='Provide your valid contact number' />
+
                         <label className="label">
                             <span className="label-text">Meeting Location</span>
                         </label>
@@ -81,9 +82,18 @@ const ProductBookModal = ({ user, resalePrice, number, name, id }) => {
                         <br />
                         <br />
                         <div className="modal-action">
+
+
+
                             <button className="w-full mb-4 btn btn-primary" type="submit" >Book Now</button>
+
+
+
+
+
                         </div>
                     </form >
+                    {/* <label className="w-full mb-4 btn btn-primary" htmlFor="my-modal" >Book Now</label> */}
 
 
 

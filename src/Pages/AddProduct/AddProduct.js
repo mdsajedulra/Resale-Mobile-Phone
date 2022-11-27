@@ -12,6 +12,7 @@ const AddProduct = () => {
         const product = {
             name: form.name.value,
             category: form.brand.value,
+            condition: form.condition.value,
             picture: form.pictureURL.value,
             location: form.location.value,
             resalePrice: form.saleingprice.value,
@@ -55,12 +56,22 @@ const AddProduct = () => {
 
             <div>
                 <label className="label">
-                    <span className="label-text">Brand Name</span>
+                    <span className="label-text">Brand Name/Category</span>
                 </label>
                 <select name='brand' className="w-full select select-bordered">
                     <option value="Samsung">Samsung</option>
                     <option value="IPhone">IPhone</option>
                     <option value="Xioami">Xioami</option>
+                </select>
+            </div>
+            <div>
+                <label className="label">
+                    <span className="label-text">Condition</span>
+                </label>
+                <select name='condition' className="w-full select select-bordered">
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
                 </select>
             </div>
 
