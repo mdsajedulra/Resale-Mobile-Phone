@@ -10,11 +10,15 @@ const MyOrders = () => {
 
     const { isLoading, error, data, refetch } = useQuery({
         queryKey: ['myOrders'],
-        queryFn: () =>
-            fetch(`http://localhost:5000/myorder/?email=${user?.email}`).then(res =>
-                res.json()
-            ),
-
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/myorder/?email=${user?.email}`, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+            const data = res.json();
+            return data
+        }
     })
     const handleOrderDelete = (id) => {
 

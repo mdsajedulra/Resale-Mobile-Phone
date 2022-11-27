@@ -42,6 +42,12 @@ const MyProdcut = () => {
         fetch(`http://localhost:5000/advertise/${id}`, {
             method: 'PATCH',
         })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('running advertising')
+                }
+            })
     }
     console.log(data)
     return (
@@ -55,8 +61,8 @@ const MyProdcut = () => {
                             <th>S.N.</th>
                             <th>Product Name</th>
                             <th>Sales Status</th>
-                            <th>Price</th>
                             <th>Advertise</th>
+                            <th>Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>
