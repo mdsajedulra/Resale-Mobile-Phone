@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import ProductBookModal from './ProductBookModal';
 
@@ -24,7 +25,12 @@ const Product = ({ product }) => {
             body: JSON.stringify(reportItem)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('We received your report')
+                }
+                console.log(data)
+            })
 
     }
     return (
