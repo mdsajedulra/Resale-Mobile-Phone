@@ -83,9 +83,14 @@ const MyOrders = () => {
                                         <button onClick={() => handleOrderDelete(order._id)} className="btn btn-error btn-xs">Delete</button>
                                     </th>
                                     <th>
-                                        <Link to={`/dashboard/checkout/${order._id}`} >
-                                            <button className="btn btn-secondary btn-xs">Pay</button>
-                                        </Link>
+                                        {
+                                            order.paid ?
+                                                <button className="btn btn-success btn-xs">Paid</button>
+                                                :
+                                                <Link to={`/dashboard/checkout/${order._id}`} >
+                                                    <button className="btn btn-secondary btn-xs">Pay</button>
+                                                </Link>
+                                        }
                                     </th>
                                 </tr>
                             )

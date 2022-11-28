@@ -23,7 +23,7 @@ const Login = () => {
                     getUserToken(user.email)
                     toast.success('Login Successfully')
                 }
-                navigate(from, { replace: true });
+
             })
             .catch(error => console.log(error))
     };
@@ -42,7 +42,7 @@ const Login = () => {
             .then(data => {
                 if (data.accessToken) {
                     localStorage.setItem('accessToken', data.accessToken)
-                    navigate('/')
+                    navigate(from, { replace: true });
                 }
             })
     }

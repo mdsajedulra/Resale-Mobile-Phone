@@ -4,6 +4,7 @@ import Main from "../../Layout/Main";
 import AddProduct from "../../Pages/AddProduct/AddProduct";
 import AllBuyers from "../../Pages/Admin/AllBuyers";
 import AllSellers from "../../Pages/Admin/AllSellers";
+import Report from "../../Pages/Admin/Report";
 import Blogs from "../../Pages/Blogs/Blogs";
 import MyOrders from "../../Pages/Buyer/MyOrders";
 import Checkout from "../../Pages/Checkout/Checkout";
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
                 path: '/dashboard/checkout/:id',
                 element: <Checkout></Checkout>,
                 loader: ({ params }) => fetch(`http://localhost:5000/productinfo/${params.id}`)
+            },
+            {
+                path: '/dashboard/reports',
+                element: <Report></Report>,
             }
         ]
     }

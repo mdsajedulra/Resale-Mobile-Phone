@@ -7,7 +7,6 @@ import toast from 'react-hot-toast';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const navItem = <>
-        <li><Link to='/addproduct'>Add Product</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
     </>
     const handleLogout = () => {
@@ -55,14 +54,21 @@ const Header = () => {
                             </div>
                         </label>
                         <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+
+                            <div className='p-2 border rounded-md'>
+                                <li>{user?.displayName}</li>
+                                <li>{user?.email}</li>
+                            </div>
                             <li><Link to='/dashboard'>Dashboard</Link></li>
                             <li><button onClick={handleLogout}>Logout</button></li>
                         </ul>
                     </div>
                     :
                     <>
-                        <li><Link to='/login'>Login</Link></li>
-                        <li><Link to='/register'>Register</Link></li>
+
+                        <li><Link className='' to='/login'>Login</Link></li>
+                        <li><Link className='ml-2 btn btn-primary ' to='/register'>Register</Link></li>
+
                     </>
 
             }
