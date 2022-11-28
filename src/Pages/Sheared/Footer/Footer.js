@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-300 text-base-content">
+        <footer className="p-10 footer bg-base-300 text-base-content">
             <div>
                 <span className="footer-title">Services</span>
                 <Link className="link link-hover">Branding</Link>
@@ -13,10 +13,10 @@ const Footer = () => {
             </div>
             <div>
                 <span className="footer-title">Company</span>
-                <a className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-                <a className="link link-hover">Jobs</a>
-                <a className="link link-hover">Press kit</a>
+                <Link className="link link-hover">About us</Link>
+                <Link className="link link-hover">Contact</Link>
+                <Link className="link link-hover">Jobs</Link>
+                <Link className="link link-hover">Press kit</Link>
             </div>
             <div>
                 <span className="footer-title">Social</span>

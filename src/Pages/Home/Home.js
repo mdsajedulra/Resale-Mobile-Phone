@@ -13,9 +13,9 @@ const Home = () => {
             <div>
                 <div className=" hero bg-base-200">
                     <div className="flex-col gap-10 m-5 hero-content lg:flex-row-reverse">
-                        <img className="w-1/2 rounded-xl" src={about} alt='' />
+                        <img className="w-full md:w-full xl:w-1/2 rounded-xl" src={about} alt='' />
                         <div>
-                            <h1 className="w-1/2 text-5xl font-bold">About Us</h1>
+                            <h1 className="text-5xl font-bold text-center md:text-left xl:text-left">About Us</h1>
                             <p className="py-6">POPUP is one and only re-commerce model in Bangladesh which focuses on consumers earning cash at quickest possible time. POPUP is first ever C2B marketplace</p>
 
                         </div>

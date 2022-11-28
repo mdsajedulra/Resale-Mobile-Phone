@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRouter><Products></Products></PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
+                loader: ({ params }) => fetch(`https://popup-server-mdsajedulra.vercel.app/products/${params.id}`),
             },
             {
                 path: '/addproduct',
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/checkout/:id',
                 element: <Checkout></Checkout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/productinfo/${params.id}`)
+                loader: ({ params }) => fetch(`https://popup-server-mdsajedulra.vercel.app/productinfo/${params.id}`)
             },
             {
                 path: '/dashboard/reports',

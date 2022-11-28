@@ -6,7 +6,7 @@ const Advertise = () => {
     const { isLoading, error, data, refetch } = useQuery({
         queryKey: ['myOrders'],
         queryFn: () =>
-            fetch(`http://localhost:5000/advertise`).then(res =>
+            fetch(`https://popup-server-mdsajedulra.vercel.app/advertise`).then(res =>
                 res.json()
             ),
     })

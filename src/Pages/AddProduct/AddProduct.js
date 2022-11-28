@@ -27,7 +27,7 @@ const AddProduct = () => {
             sold: false,
             advertise: false,
         }
-        fetch('http://localhost:5000/addproduct', {
+        fetch('https://popup-server-mdsajedulra.vercel.app/addproduct', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

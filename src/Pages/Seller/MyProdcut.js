@@ -12,13 +12,13 @@ const MyProdcut = () => {
     const { isLoading, error, data, refetch } = useQuery({
         queryKey: ['myOrders', user?.email],
         queryFn: () =>
-            fetch(`http://localhost:5000/myproduct/?email=${user?.email}`).then(res =>
+            fetch(`https://popup-server-mdsajedulra.vercel.app/myproduct/?email=${user?.email}`).then(res =>
                 res.json()
             ),
     })
     const handleMyOrderDelete = (id) => {
         console.log(id)
-        fetch(`http://localhost:5000/myproducts/delete/${id}`, {
+        fetch(`https://popup-server-mdsajedulra.vercel.app/myproducts/delete/${id}`, {
             method: 'DELETE',
         }).then(res => res.json())
             .then(data => {
@@ -39,7 +39,7 @@ const MyProdcut = () => {
 
     // handle advertise
     const handleAdvertise = (id) => {
-        fetch(`http://localhost:5000/advertise/${id}`, {
+        fetch(`https://popup-server-mdsajedulra.vercel.app/advertise/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())

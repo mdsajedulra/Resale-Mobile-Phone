@@ -18,7 +18,7 @@ const ProductBookModal = ({ user, resalePrice, number, name, id }) => {
             sold: true,
         }
         console.log(bookingdata)
-        fetch('http://localhost:5000/booking', {
+        fetch('https://popup-server-mdsajedulra.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -31,7 +31,7 @@ const ProductBookModal = ({ user, resalePrice, number, name, id }) => {
                     toast.success(`${name} is booked`)
                 }
             })
-        fetch(`http://localhost:5000/addproduct/${id}`, {
+        fetch(`https://popup-server-mdsajedulra.vercel.app/addproduct/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())

@@ -17,7 +17,7 @@ const Product = ({ product }) => {
     }
     const handleReport = () => {
         // console.log(reportItem)
-        fetch(`http://localhost:5000/reportItem`, {
+        fetch(`https://popup-server-mdsajedulra.vercel.app/reportItem`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

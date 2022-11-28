@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
+import DashboardHeader from '../Pages/Sheared/Header/DashboardHeader';
 import Header from '../Pages/Sheared/Header/Header';
 
 const DashboardLayout = () => {
@@ -11,7 +12,7 @@ const DashboardLayout = () => {
     // const { isLoading, error, data, refetch } = useQuery({
     //     queryKey: ['user'],
     //     queryFn: () =>
-    //         fetch(`http://localhost:5000/users/?email=${user?.email}`).then(res =>
+    //         fetch(`https://popup-server-mdsajedulra.vercel.app/users/?email=${user?.email}`).then(res =>
     //             res.json()
     //         ),
     // })
@@ -19,7 +20,7 @@ const DashboardLayout = () => {
 
     const [databaseUser, setDatabaseUser] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/users/?email=${user?.email}`)
+        fetch(`https://popup-server-mdsajedulra.vercel.app/users/?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setDatabaseUser(data))
     }, [])
@@ -29,7 +30,7 @@ const DashboardLayout = () => {
     return (
 
         <div>
-            <Header></Header>
+            <DashboardHeader></DashboardHeader>
             <div className="drawer drawer-mobile">
 
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

@@ -7,13 +7,13 @@ const AllSellers = () => {
     const { isLoading, error, data, refetch } = useQuery({
         queryKey: [],
         queryFn: () =>
-            fetch(`http://localhost:5000/allseller`).then(res =>
+            fetch(`https://popup-server-mdsajedulra.vercel.app/allseller`).then(res =>
                 res.json()
             ),
     })
 
     const handleUserDelete = (id) => {
-        fetch(`http://localhost:5000/user/delete/${id}`, {
+        fetch(`https://popup-server-mdsajedulra.vercel.app/user/delete/${id}`, {
             method: 'DELETE',
         }).then(res => res.json())
             .then(data => {
@@ -26,7 +26,7 @@ const AllSellers = () => {
 
     const handleVerifySeller = (email) => {
         // console.log(id)
-        fetch(`http://localhost:5000/users/${email}`, {
+        fetch(`https://popup-server-mdsajedulra.vercel.app/users/${email}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
