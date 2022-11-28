@@ -6,6 +6,7 @@ import AllBuyers from "../../Pages/Admin/AllBuyers";
 import AllSellers from "../../Pages/Admin/AllSellers";
 import Blogs from "../../Pages/Blogs/Blogs";
 import MyOrders from "../../Pages/Buyer/MyOrders";
+import Checkout from "../../Pages/Checkout/Checkout";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -75,6 +76,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/allsellers',
                 element: <AllSellers></AllSellers>
+            },
+            {
+                path: '/dashboard/checkout/:id',
+                element: <Checkout></Checkout>,
+                loader: ({ params }) => fetch(`http://localhost:5000/productinfo/${params.id}`)
             }
         ]
     }

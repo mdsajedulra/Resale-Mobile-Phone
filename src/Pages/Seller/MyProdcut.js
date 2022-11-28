@@ -59,11 +59,13 @@ const MyProdcut = () => {
                     <thead>
                         <tr>
                             <th>S.N.</th>
+                            <th>Product Picture</th>
                             <th>Product Name</th>
                             <th>Sales Status</th>
                             <th>Advertise</th>
                             <th>Price</th>
                             <th>Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -73,6 +75,9 @@ const MyProdcut = () => {
                                 <tr key={i}>
                                     <th>
                                         {i + 1}
+                                    </th>
+                                    <th>
+                                        <img src={order.picture} className='w-20 bg-white rounded-3xl' alt="" />
                                     </th>
                                     <td>
                                         <div className="flex items-center space-x-3">
@@ -97,6 +102,7 @@ const MyProdcut = () => {
                                     <th>
                                         <button onClick={() => handleMyOrderDelete(order._id)} className="btn btn-error btn-xs">Delete</button>
                                     </th>
+
                                 </tr>
                             )
                         }

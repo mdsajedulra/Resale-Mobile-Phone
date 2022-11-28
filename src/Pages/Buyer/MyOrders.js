@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 
@@ -51,6 +52,7 @@ const MyOrders = () => {
                             <th>Price</th>
                             <th>Location</th>
                             <th>Action</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,6 +82,11 @@ const MyOrders = () => {
                                     <th>
                                         <button onClick={() => handleOrderDelete(order._id)} className="btn btn-error btn-xs">Delete</button>
                                     </th>
+                                    <th>
+                                        <Link to={`/dashboard/checkout/${order._id}`} >
+                                            <button className="btn btn-secondary btn-xs">Pay</button>
+                                        </Link>
+                                    </th>
                                 </tr>
                             )
                         }
@@ -90,7 +97,7 @@ const MyOrders = () => {
             </div>
 
 
-        </div>
+        </div >
     );
 };
 

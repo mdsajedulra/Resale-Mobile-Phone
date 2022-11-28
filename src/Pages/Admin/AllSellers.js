@@ -30,7 +30,11 @@ const AllSellers = () => {
             method: 'PATCH'
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.matchedCount) {
+                    toast.success('Seller verifyed')
+                }
+            })
     }
 
     if (isLoading) return <div className="flex items-center justify-center my-48">
@@ -77,7 +81,7 @@ const AllSellers = () => {
 
                                     <td>{user.email}</td>
                                     <th>
-                                        <button onClick={() => handleVerifySeller(user.email)} className="btn btn-error btn-xs">Verify Seller</button>
+                                        <button onClick={() => handleVerifySeller(user.email)} className="btn btn-success btn-xs">Verify Seller</button>
                                     </th>
                                     <th>
                                         <button onClick={() => handleUserDelete(user._id)} className="btn btn-error btn-xs">Delete</button>

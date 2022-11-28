@@ -26,7 +26,6 @@ const AddProduct = () => {
             isVerify: false,
             sold: false,
             advertise: false,
-
         }
         fetch('http://localhost:5000/addproduct', {
             method: 'POST',
